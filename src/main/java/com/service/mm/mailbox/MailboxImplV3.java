@@ -11,7 +11,7 @@ import se.gov.minameddelanden.service.ServicePortV3;
 import javax.jws.HandlerChain;
 import javax.jws.WebService;
 
-@HandlerChain(file = "handler-chain.xml")
+@HandlerChain(file = "/handler-chain.xml")
 @WebService(endpointInterface = "se.gov.minameddelanden.service.ServicePortV3")
 public class MailboxImplV3 implements ServicePortV3 {
 
