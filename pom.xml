@@ -42,6 +42,21 @@
             <artifactId>cxf-rt-transports-http</artifactId>
             <version>${cxf.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.4.2</version>
+        </dependency>
         <!-- Jetty is needed if you're are not using the CXFServlet -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
@@ -70,7 +85,7 @@
                             <sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/Service.wsdl</wsdl>
+                                    <wsdl>${basedir}/src/main/resources/wsdl/Service.wsdl</wsdl>
                                     <bindingFiles>
                                         <bindingFile>${basedir}/src/main/resources/jaxws-bindings.xml</bindingFile>
                                     </bindingFiles>
@@ -107,13 +122,6 @@
                 <version>3.2.2</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.0</version>
-                <configuration>
-
                 </configuration>
             </plugin>
         </plugins>
@@ -170,6 +178,9 @@
                                     <goal>test</goal>
                                 </goals>
                                 <configuration>
+                                    <systemPropertyVariables>
+                                        <log4j2.contextSelector>org.apache.logging.log4j.core.async.AsyncLoggerContextSelector</log4j2.contextSelector>
+                                    </systemPropertyVariables>
                                     <skip>false</skip>
                                     <excludes>
                                         <exclude>none</exclude>
