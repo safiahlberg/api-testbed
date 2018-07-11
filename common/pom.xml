@@ -42,7 +42,8 @@
                                         <wsdlOption>
                                             <wsdl>${basedir}/src/main/resources/wsdl/Service.wsdl</wsdl>
                                             <bindingFiles>
-                                                <bindingFile>${basedir}/src/main/resources/jaxws-bindings.xml</bindingFile>
+                                                <bindingFile>${basedir}/src/main/resources/jaxws-bindings.xml
+                                                </bindingFile>
                                             </bindingFiles>
                                         </wsdlOption>
                                     </wsdlOptions>
@@ -74,7 +75,10 @@
                                     <wsdlFiles>
                                         <wsdlFile>${basedir}/src/main/resources/wsdl/Service.wsdl</wsdlFile>
                                     </wsdlFiles>
-                                    <bindingFile>${basedir}/src/main/resources/jaxws-bindings.xml</bindingFile>
+                                    <bindingFiles>
+                                        <bindingFile>${basedir}/src/main/resources/jaxws-bindings.xml</bindingFile>
+                                    </bindingFiles>
+                                    <sourceDestDir>${project.build.directory}/generated/ws-artifact</sourceDestDir>
                                 </configuration>
                             </execution>
                         </executions>

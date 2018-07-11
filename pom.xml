@@ -175,5 +175,11 @@
                 <module>cxf</module>
             </modules>
         </profile>
+        <profile>
+            <id>metro</id>
+            <modules>
+                <module>metro</module>
+            </modules>
+        </profile>
     </profiles>
 </project>
