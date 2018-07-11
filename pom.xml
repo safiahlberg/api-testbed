@@ -7,11 +7,10 @@
     <groupId>com.testcorp.mm</groupId>
     <artifactId>api-testbed</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cxf.version>3.2.5</cxf.version>
     </properties>
 
     <dependencies>
@@ -33,16 +32,6 @@
             <version>5.0.7.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-frontend-jaxws</artifactId>
-            <version>${cxf.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-transports-http</artifactId>
-            <version>${cxf.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>2.11.0</version>
@@ -57,12 +46,6 @@
             <artifactId>disruptor</artifactId>
             <version>3.4.2</version>
         </dependency>
-        <!-- Jetty is needed if you're are not using the CXFServlet -->
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-transports-http-jetty</artifactId>
-            <version>${cxf.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -73,31 +56,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-codegen-plugin</artifactId>
-                <version>${cxf.version}</version>
-                <executions>
-                    <execution>
-                        <id>generate-sources</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
-                            <wsdlOptions>
-                                <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/wsdl/Service.wsdl</wsdl>
-                                    <bindingFiles>
-                                        <bindingFile>${basedir}/src/main/resources/jaxws-bindings.xml</bindingFile>
-                                    </bindingFiles>
-                                </wsdlOption>
-                            </wsdlOptions>
-                        </configuration>
-                        <goals>
-                            <goal>wsdl2java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -111,7 +69,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${project.build.directory}/generated/cxf/</source>
+                                <source>${project.build.directory}/generated/ws-artifact</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -179,7 +137,9 @@
                                 </goals>
                                 <configuration>
                                     <systemPropertyVariables>
-                                        <log4j2.contextSelector>org.apache.logging.log4j.core.async.AsyncLoggerContextSelector</log4j2.contextSelector>
+                                        <log4j2.contextSelector>
+                                            org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+                                        </log4j2.contextSelector>
                                     </systemPropertyVariables>
                                     <skip>false</skip>
                                     <excludes>
