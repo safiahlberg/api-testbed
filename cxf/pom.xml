@@ -20,6 +20,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.testcorp.mm</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
             <version>${cxf.version}</version>
@@ -51,7 +56,9 @@
                             <sourceRoot>${project.build.directory}/generated/ws-artifact</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
-                                    <wsdl>https://emma.skatteverket.se/ezwa100/minameddelanden_wsdl/open/wsdl/Service.wsdl</wsdl>
+                                    <wsdl>
+                                        https://emma.skatteverket.se/ezwa100/minameddelanden_wsdl/open/wsdl/Service.wsdl
+                                    </wsdl>
                                     <bindingFiles>
                                         <bindingFile>${basedir}/src/main/resources/jaxws-bindings.xml</bindingFile>
                                     </bindingFiles>
@@ -66,5 +73,22 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>integration</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

@@ -1,4 +1,4 @@
-package com.service.mm.mailbox.handler;
+package com.testcorp.handler;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
