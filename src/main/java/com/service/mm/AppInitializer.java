@@ -1,6 +1,6 @@
-package com.testcorp.mm;
+package com.service.mm;
 
-import com.testcorp.mm.mailbox.ServiceConfiguration;
+import com.service.mm.mailbox.ServiceConfiguration;
 import org.apache.cxf.transport.servlet.CXFServlet;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;

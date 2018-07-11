@@ -3,7 +3,6 @@
     <handler-chain>
         <handler>
             <handler-class>com.service.mm.mailbox.handler.DefaultHandler</handler-class>
-            <init-param></init-param>
         </handler>
     </handler-chain>
 </handler-chains>

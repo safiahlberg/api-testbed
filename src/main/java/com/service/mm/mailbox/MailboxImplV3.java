@@ -1,4 +1,4 @@
-package com.testcorp.mm.mailbox;
+package com.service.mm.mailbox;
 
 import se.gov.minameddelanden.schema.message.v3.SealedDelivery;
 import se.gov.minameddelanden.schema.notification.v3.NotificationDelivery;
@@ -8,8 +8,10 @@ import se.gov.minameddelanden.schema.service.v3.ForwardDelivery;
 import se.gov.minameddelanden.service.ApplicationFaultV3;
 import se.gov.minameddelanden.service.ServicePortV3;
 
+import javax.jws.HandlerChain;
 import javax.jws.WebService;
 
+@HandlerChain(file = "handler-chain.xml")
 @WebService(endpointInterface = "se.gov.minameddelanden.service.ServicePortV3")
 public class MailboxImplV3 implements ServicePortV3 {
 

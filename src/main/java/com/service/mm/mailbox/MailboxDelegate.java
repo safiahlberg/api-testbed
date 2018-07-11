@@ -1,4 +1,4 @@
-package com.testcorp.mm.mailbox;
+package com.service.mm.mailbox;
 
 import se.gov.minameddelanden.schema.message.v3.SealedDelivery;
 import se.gov.minameddelanden.schema.notification.v3.NotificationDelivery;
