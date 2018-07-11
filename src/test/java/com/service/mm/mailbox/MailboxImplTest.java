@@ -1,4 +1,4 @@
-package com.testcorp.mm.mailbox;
+package com.service.mm.mailbox;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

@@ -1,4 +1,4 @@
-package com.testcorp.mm.mailbox;
+package com.service.mm.mailbox;
 
 import org.apache.cxf.Bus;
 import org.apache.cxf.bus.spring.SpringBus;

@@ -3,16 +3,16 @@
         <Console name="stdout" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
         </Console>
-    </Appenders>
-    <Appenders>
-        <File name="fout" fileName="server.log" append="true">
+        <RandomAccessFile name="fout" fileName="server.log" append="true" immediateFlush="false">
             <PatternLayout>
                 <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%nw</Pattern>
             </PatternLayout>
-        </File>
+        </RandomAccessFile>
     </Appenders>
-    <AsyncRoot level="INFO">
-        <AppenderRef ref="stdout"/>
-        <AppenderRef ref="fout"/>
-    </AsyncRoot>
+    <Loggers>
+        <Root level="INFO" includeLocation="false">
+            <AppenderRef ref="stdout"/>
+            <AppenderRef ref="fout"/>
+        </Root>
+    </Loggers>
 </Configuration>
