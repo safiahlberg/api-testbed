@@ -1,4 +1,4 @@
-package com.service.mm.mailbox;
+package com.service.mm.mailbox.client;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
