@@ -1,4 +1,4 @@
-package com.service.mm.mailbox;
+package com.service.mm.mailbox.client;
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.springframework.context.annotation.Bean;

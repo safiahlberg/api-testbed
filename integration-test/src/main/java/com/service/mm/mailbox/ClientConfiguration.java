@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "com.service.mm.mailbox")
+@ComponentScan(basePackages = "com.service.mm.mailbox.client")
 public class ClientConfiguration {
 
 }
