@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import se.gov.minameddelanden.service.ServicePortV3;
 
 @Configuration
-public class ClientConfiguration {
+public class CxfClientConfiguration {
 
     @Bean(name = "clientv3")
     public Object generateProxy() {

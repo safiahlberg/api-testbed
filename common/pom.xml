@@ -23,6 +23,19 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+                <configuration>
+                    <skip>true</skip>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <profiles>
         <profile>
             <id>cxf</id>
@@ -65,6 +78,25 @@
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>jaxws-maven-plugin</artifactId>
                         <version>2.5</version>
+                        <!--
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.glassfish.metro</groupId>
+                                <artifactId>webservices-tools</artifactId>
+                                <version>2.4.1</version>
+                            </dependency>
+                        </dependencies>
+                        -->
+                        <!--
+                        <dependencies>
+                            <dependency>
+                                <groupId>com.sun.xml.ws</groupId>
+                                <artifactId>jaxws-tools</artifactId>
+                                <version>2.3.0.2</version>
+                                <type>pom</type>
+                            </dependency>
+                        </dependencies>
+                        -->
                         <executions>
                             <execution>
                                 <id>wsimport</id>
