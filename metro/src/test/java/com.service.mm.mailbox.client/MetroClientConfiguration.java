@@ -16,7 +16,7 @@ public class MetroClientConfiguration {
 
         ServicePortV3 port = service.getServicePortV3();
         BindingProvider bp = (BindingProvider) port;
-        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "http://localhost:8080/services/mailbox/v3");
+        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "http://localhost:8080/metro/services/mailbox/v3");
 
         return port;
     }
