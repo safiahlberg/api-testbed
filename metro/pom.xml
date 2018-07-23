@@ -38,12 +38,33 @@
             <artifactId>jaxws-rt</artifactId>
             <version>2.3.0.2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jvnet.jax-ws-commons.spring/jaxws-spring -->
         <!--
         <dependency>
             <groupId>org.jvnet.jax-ws-commons.spring</groupId>
             <artifactId>jaxws-spring</artifactId>
             <version>1.9</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.xml.ws</groupId>
+                    <artifactId>jaxws-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         -->
     </dependencies>
