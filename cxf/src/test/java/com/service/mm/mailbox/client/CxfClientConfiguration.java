@@ -17,7 +17,7 @@ public class CxfClientConfiguration {
     public JaxWsProxyFactoryBean proxyFactoryBeanV3() {
         JaxWsProxyFactoryBean proxyFactory = new JaxWsProxyFactoryBean();
         proxyFactory.setServiceClass(ServicePortV3.class);
-        proxyFactory.setAddress("http://localhost:8080/services/mailbox/v3");
+        proxyFactory.setAddress("http://localhost:8080/cxf/services/mailbox/v3");
 
         return proxyFactory;
     }
