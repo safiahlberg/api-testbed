@@ -2,7 +2,7 @@ package com.service.mm.mailbox.client;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import se.gov.minameddelanden.service.Mailbox;
+import se.gov.minameddelanden.service.Service;
 import se.gov.minameddelanden.service.ServicePortV3;
 
 import javax.xml.ws.BindingProvider;
@@ -12,7 +12,7 @@ public class MetroClientConfiguration {
 
     @Bean(name = "clientv3")
     public Object generateProxyV3() {
-        Mailbox service = new Mailbox();
+        Service service = new Service();
 
         ServicePortV3 port = service.getServicePortV3();
         BindingProvider bp = (BindingProvider) port;

@@ -85,12 +85,7 @@
                                     <goal>wsimport</goal>
                                 </goals>
                                 <configuration>
-                                    <wsdlFiles>
-                                        <wsdlFile>${basedir}/src/main/resources/wsdl/Service.wsdl</wsdlFile>
-                                    </wsdlFiles>
-                                    <bindingFiles>
-                                        <bindingFile>${basedir}/src/main/resources/jaxws-bindings.xml</bindingFile>
-                                    </bindingFiles>
+                                    <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
                                     <sourceDestDir>${project.build.directory}/generated/ws-artifact</sourceDestDir>
                                 </configuration>
                             </execution>
