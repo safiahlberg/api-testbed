@@ -7,7 +7,7 @@ import se.gov.minameddelanden.schema.service.DeliveryResult;
 import se.gov.minameddelanden.schema.service.v3.ForwardDelivery;
 import se.gov.minameddelanden.service.*;
 
-class MailboxDelegate {
+class ServiceDelegate {
 
     public DeliveryResult deliverSecureV3(SealedDelivery deliverSecure) throws ApplicationFaultV3 {
         return new DeliveryResult();

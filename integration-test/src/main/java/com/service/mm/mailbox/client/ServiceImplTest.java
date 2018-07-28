@@ -10,7 +10,7 @@ import se.gov.minameddelanden.schema.service.DeliveryResult;
 import se.gov.minameddelanden.service.ApplicationFaultV3;
 import se.gov.minameddelanden.service.ServicePortV3;
 
-public class MailboxImplTest {
+public class ServiceImplTest {
 
     private ApplicationContext context = new AnnotationConfigApplicationContext(ClientConfiguration.class);
     private ServicePortV3 proxyV3 = (ServicePortV3) context.getBean("clientv3");

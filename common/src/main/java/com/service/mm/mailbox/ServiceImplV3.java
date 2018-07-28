@@ -13,17 +13,17 @@ import javax.jws.WebService;
 
 @HandlerChain(file = "/handler-chain.xml")
 @WebService(endpointInterface = "se.gov.minameddelanden.service.ServicePortV3")
-public class MailboxImplV3 implements ServicePortV3 {
+public class ServiceImplV3 implements ServicePortV3 {
 
     public DeliveryResult deliverSecure(SealedDelivery deliverSecure) throws ApplicationFaultV3 {
-        return new MailboxDelegate().deliverSecureV3(deliverSecure);
+        return new ServiceDelegate().deliverSecureV3(deliverSecure);
     }
 
     public DeliveryResult deliverForward(ForwardDelivery forwardMessage) throws ApplicationFaultV3 {
-        return new MailboxDelegate().deliverForwardV3(forwardMessage);
+        return new ServiceDelegate().deliverForwardV3(forwardMessage);
     }
 
     public NotifyResult notify(NotificationDelivery notify) throws ApplicationFaultV3 {
-        return new MailboxDelegate().notifyV3(notify);
+        return new ServiceDelegate().notifyV3(notify);
     }
 }

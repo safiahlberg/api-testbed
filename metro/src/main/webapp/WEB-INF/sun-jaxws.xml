@@ -2,6 +2,6 @@
 <endpoints xmlns='http://java.sun.com/xml/ns/jax-ws/ri/runtime'
            version='2.0'>
     <endpoint name='MailboxService'
-              implementation='com.service.mm.mailbox.MailboxImplV3'
+              implementation='com.service.mm.mailbox.ServiceImplV3'
               url-pattern='/services/mailbox/v3'/>
 </endpoints>
