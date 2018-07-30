@@ -8,17 +8,22 @@ import se.gov.minameddelanden.service.ServicePortV3;
 @Configuration
 public class CxfClientConfiguration {
 
-    @Bean(name = "clientv3")
-    public Object generateProxy() {
-        return proxyFactoryBeanV3().create();
-    }
-
-    @Bean
-    public JaxWsProxyFactoryBean proxyFactoryBeanV3() {
+    @Bean(name = "mailboxv3")
+    public Object generateProxyMailboxV3() {
         JaxWsProxyFactoryBean proxyFactory = new JaxWsProxyFactoryBean();
         proxyFactory.setServiceClass(ServicePortV3.class);
         proxyFactory.setAddress("http://localhost:8080/cxf/services/mailbox/v3");
 
-        return proxyFactory;
+        return proxyFactory.create();
     }
+
+    @Bean(name = "recipentv3")
+    public Object generateProxyRecipientV3() {
+        JaxWsProxyFactoryBean proxyFactory = new JaxWsProxyFactoryBean();
+        proxyFactory.setServiceClass(ServicePortV3.class);
+        proxyFactory.setAddress("http://localhost:8080/cxf/services/recipient/v3");
+
+        return proxyFactory.create();
+    }
+
 }

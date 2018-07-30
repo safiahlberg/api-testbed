@@ -1,5 +1,6 @@
 package com.service.mm.mailbox.client;
 
+import com.service.mm.client.ClientConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
@@ -13,7 +14,7 @@ import se.gov.minameddelanden.service.ServicePortV3;
 public class ServiceImplTest {
 
     private ApplicationContext context = new AnnotationConfigApplicationContext(ClientConfiguration.class);
-    private ServicePortV3 proxyV3 = (ServicePortV3) context.getBean("clientv3");
+    private ServicePortV3 proxyV3 = (ServicePortV3) context.getBean("mailboxv3");
 
     @BeforeMethod
     public void setUp() {

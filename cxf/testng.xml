@@ -3,7 +3,7 @@
 <suite name="Suite1" verbose="1" >
     <test name="Integration"   >
         <packages>
-            <package name="com.service.mm.mailbox.client" />
+            <package name="com.service.mm" />
         </packages>
     </test>
 </suite>
