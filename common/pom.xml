@@ -51,15 +51,12 @@
                                 <phase>generate-sources</phase>
                                 <configuration>
                                     <sourceRoot>${project.build.directory}/generated/ws-artifact</sourceRoot>
-                                    <wsdlOptions>
-                                        <wsdlOption>
-                                            <wsdl>${basedir}/src/main/resources/wsdl/Service.wsdl</wsdl>
-                                            <bindingFiles>
-                                                <bindingFile>${basedir}/src/main/resources/jaxws-bindings.xml
-                                                </bindingFile>
-                                            </bindingFiles>
-                                        </wsdlOption>
-                                    </wsdlOptions>
+                                    <defaultOptions>
+                                        <bindingFiles>
+                                            <bindingFile>${basedir}/src/main/resources/jaxws-bindings.xml
+                                            </bindingFile>
+                                        </bindingFiles>
+                                    </defaultOptions>
                                 </configuration>
                                 <goals>
                                     <goal>wsdl2java</goal>
@@ -86,6 +83,7 @@
                                 </goals>
                                 <configuration>
                                     <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
+                                    <bindingDirectory>${basedir}/src/main/resources</bindingDirectory>
                                     <sourceDestDir>${project.build.directory}/generated/ws-artifact</sourceDestDir>
                                 </configuration>
                             </execution>
