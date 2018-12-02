@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns='http://java.sun.com/xml/ns/jax-ws/ri/runtime'
+           version='2.0'>
+
+    <endpoint name='MailboxService'
+              implementation='com.service.mm.mailbox.ServiceImplV3'
+              url-pattern='/services/mailbox/v3'/>
+
+    <endpoint name='RecipientService'
+              implementation='com.service.mm.far.RecipientImplV3'
+              url-pattern='/services/recipient/v3'/>
+</endpoints>
