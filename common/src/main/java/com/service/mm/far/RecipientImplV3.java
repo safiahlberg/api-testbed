@@ -26,22 +26,22 @@ public class RecipientImplV3 implements RecipientPortV3 {
     WebServiceContext context;
 
     @Override
-    public GetAccountPreferencesResponse getAccountPreferences(GetAccountPreferences parameters) throws ApplicationFaultV3 {
+    public GetAccountPreferencesResponse getAccountPreferences(GetAccountPreferences parameters) {
         return null;
     }
 
     @Override
-    public GetPendingAccountPreferencesResponse getPendingAccountPreferences(GetPendingAccountPreferences parameters) throws ApplicationFaultV3 {
+    public GetPendingAccountPreferencesResponse getPendingAccountPreferences(GetPendingAccountPreferences parameters) {
         return null;
     }
 
     @Override
-    public DeletePendingAccountPreferencesResponse deletePendingAccountPreferences(DeletePendingAccountPreferences parameters) throws ApplicationFaultV3 {
+    public DeletePendingAccountPreferencesResponse deletePendingAccountPreferences(DeletePendingAccountPreferences parameters) {
         return null;
     }
 
     @Override
-    public StoreAccountPreferencesResponse storeAccountPreferences(StoreAccountPreferences parameters) throws ApplicationFaultV3 {
+    public StoreAccountPreferencesResponse storeAccountPreferences(StoreAccountPreferences parameters) {
         return null;
     }
 
@@ -66,47 +66,47 @@ public class RecipientImplV3 implements RecipientPortV3 {
     }
 
     @Override
-    public IsRegisteredResponse isRegistered(IsRegistered parameters) throws ApplicationFaultV3 {
+    public IsRegisteredResponse isRegistered(IsRegistered parameters) {
         return null;
     }
 
     @Override
-    public RegisterResponse register(Register parameters) throws ApplicationFaultV3 {
+    public RegisterResponse register(Register parameters) {
         return null;
     }
 
     @Override
-    public DeregisterResponse deregister(Deregister parameters) throws ApplicationFaultV3 {
+    public DeregisterResponse deregister(Deregister parameters) {
         return null;
     }
 
     @Override
-    public GetPendingAccountRequestResponse getPendingAccountRequest(GetPendingAccountRequest parameters) throws ApplicationFaultV3 {
+    public GetPendingAccountRequestResponse getPendingAccountRequest(GetPendingAccountRequest parameters) {
         return null;
     }
 
     @Override
-    public DeletePendingAccountRequestResponse deletePendingAccountRequest(DeletePendingAccountRequest parameters) throws ApplicationFaultV3 {
+    public DeletePendingAccountRequestResponse deletePendingAccountRequest(DeletePendingAccountRequest parameters) {
         return null;
     }
 
     @Override
-    public ChangeServiceSupplierResponse changeServiceSupplier(ChangeServiceSupplier parameters) throws ApplicationFaultV3 {
+    public ChangeServiceSupplierResponse changeServiceSupplier(ChangeServiceSupplier parameters) {
         return null;
     }
 
     @Override
-    public GetPendingChangeServiceSupplierResponse getPendingChangeServiceSupplier(GetPendingChangeServiceSupplier parameters) throws ApplicationFaultV3 {
+    public GetPendingChangeServiceSupplierResponse getPendingChangeServiceSupplier(GetPendingChangeServiceSupplier parameters) {
         return null;
     }
 
     @Override
-    public DeletePendingChangeServiceSupplierResponse deletePendingChangeServiceSupplier(DeletePendingChangeServiceSupplier parameters) throws ApplicationFaultV3 {
+    public DeletePendingChangeServiceSupplierResponse deletePendingChangeServiceSupplier(DeletePendingChangeServiceSupplier parameters) {
         return null;
     }
 
     @Override
-    public IsAuthorizedSignerResponse isAuthorizedSigner(IsAuthorizedSigner parameters) throws ApplicationFaultV3 {
+    public IsAuthorizedSignerResponse isAuthorizedSigner(IsAuthorizedSigner parameters) {
         return null;
     }
 }
