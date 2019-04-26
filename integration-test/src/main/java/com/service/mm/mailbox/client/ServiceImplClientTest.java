@@ -1,15 +1,17 @@
 package com.service.mm.mailbox.client;
 
 import com.service.mm.client.ClientConfiguration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import se.gov.minameddelanden.externalschema.invoice.Invoice;
-import se.gov.minameddelanden.schema.message.v3.MessageHeader;
 import se.gov.minameddelanden.schema.message.v3.OfficialMatter;
-import se.gov.minameddelanden.schema.message.v3.SealedDelivery;
 import se.gov.minameddelanden.schema.service.v3.DeliverSecure;
 import se.gov.minameddelanden.schema.service.v3.DeliverSecureResponse;
 import se.gov.minameddelanden.service.ApplicationFaultV3;
@@ -18,14 +20,15 @@ import se.gov.minameddelanden.service.ServicePortV3;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class ServiceImplClientTest {
+    private static Logger logger = LogManager.getLogger(ServiceImplClientTest.class);
 
     private ApplicationContext context = new AnnotationConfigApplicationContext(ClientConfiguration.class);
     private ServicePortV3 proxyV3 = (ServicePortV3) context.getBean("mailboxv3");
@@ -36,22 +39,30 @@ public class ServiceImplClientTest {
     }
 
     @Test
-    public void deliverSecure() throws ApplicationFaultV3, URISyntaxException, JAXBException {
+    public void deliverSecureWithOfficialMatter() throws ApplicationFaultV3, URISyntaxException, JAXBException, IOException {
         final JAXBContext jaxbContext = JAXBContext.newInstance(Invoice.class);
 
         final Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
-        Collection<Invoice> invoices = Arrays.asList(Objects.requireNonNull(Paths.get(
-                getClass().getClassLoader()
-                        .getResource(".").toURI())
-                .toFile().listFiles((dir, name) -> name.endsWith(".xml")
-                ))).stream().map(file -> {
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        Resource[] resources = resolver.getResources("classpath*:invoice*.xml");
+
+        Collection<Invoice> invoices = Arrays.asList(Objects.requireNonNull(resources
+                )).stream().map(resource -> {
             try {
-                return (Invoice) jaxbUnmarshaller.unmarshal(file);
+                final Invoice invoice = (Invoice) jaxbUnmarshaller.unmarshal(resource.getInputStream());
+                logger.info(() -> String.format("Unmarshalled file \"%s\"", resource.getFilename()));
+
+                return invoice;
             } catch (JAXBException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }).collect(Collectors.toList());
+
+        Assert.assertNotNull(invoices);
+        Assert.assertNotEquals(invoices.size(), 0);
 
         OfficialMatter officialMatter = new OfficialMatter();
         officialMatter.getAny().addAll(invoices);
