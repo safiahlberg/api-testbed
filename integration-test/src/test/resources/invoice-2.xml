@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ns1:Invoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:ns1="http://minameddelanden.gov.se/externalschema/Invoice"
+             xsi:schemaLocation="http://minameddelanden.gov.se/externalschema/Invoice Invoice.xsd">
+    <ns1:DueDate>2019-05-25</ns1:DueDate>
+    <ns1:Amount CurrencyCode="SEK">5000</ns1:Amount>
+    <ns1:OcrNumber>Fakturanr: 1234567, Kundnr: FR3784</ns1:OcrNumber>
+</ns1:Invoice>

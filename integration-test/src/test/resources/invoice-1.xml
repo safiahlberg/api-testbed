@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ns1:Invoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:ns1="http://minameddelanden.gov.se/externalschema/Invoice"
+             xsi:schemaLocation="http://minameddelanden.gov.se/externalschema/Invoice Invoice.xsd">
+    <ns1:DueDate>2019-08-13</ns1:DueDate>
+    <ns1:Amount CurrencyCode="SEK">3.141590118408203125</ns1:Amount>
+    <ns1:OcrNumber>1234567890</ns1:OcrNumber>
+</ns1:Invoice>
