@@ -10,20 +10,22 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import se.gov.minameddelanden.externalschema.invoice.Invoice;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
 import se.gov.minameddelanden.schema.message.v3.OfficialMatter;
 import se.gov.minameddelanden.schema.service.v3.DeliverSecure;
 import se.gov.minameddelanden.schema.service.v3.DeliverSecureResponse;
 import se.gov.minameddelanden.service.ApplicationFaultV3;
 import se.gov.minameddelanden.service.ServicePortV3;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -39,33 +41,21 @@ public class ServiceImplClientTest {
     }
 
     @Test
-    public void deliverSecureWithOfficialMatter() throws ApplicationFaultV3, URISyntaxException, JAXBException, IOException {
-        final JAXBContext jaxbContext = JAXBContext.newInstance(Invoice.class);
+    public void deliverSecureWithOfficialMatter() throws ApplicationFaultV3, IOException, ParserConfigurationException {
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
-        final Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         Resource[] resources = resolver.getResources("classpath*:invoice*.xml");
 
-        Collection<Invoice> invoices = Arrays.asList(Objects.requireNonNull(resources
-                )).stream().map(resource -> {
-            try {
-                final Invoice invoice = (Invoice) jaxbUnmarshaller.unmarshal(resource.getInputStream());
-                logger.info(() -> String.format("Unmarshalled file \"%s\"", resource.getFilename()));
-
-                return invoice;
-            } catch (JAXBException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }).collect(Collectors.toList());
+        Collection<Element> invoices = readAndConvertInvoiceFiles(dBuilder, resources);
 
         Assert.assertNotNull(invoices);
         Assert.assertNotEquals(invoices.size(), 0);
 
         OfficialMatter officialMatter = new OfficialMatter();
-        officialMatter.getAny().addAll(invoices);
+        officialMatter.getAnies().addAll(invoices);
 
         DeliverSecure request = new DeliverSecureBuilderImpl()
                 .setOfficialMatter(officialMatter)
@@ -74,6 +64,20 @@ public class ServiceImplClientTest {
         DeliverSecureResponse result = proxyV3.deliverSecure(request);
 
         Assert.assertNotNull(result);
+    }
+
+    private List<Element> readAndConvertInvoiceFiles(DocumentBuilder dBuilder, Resource[] resources) {
+        return Arrays.stream(Objects.requireNonNull(resources
+                )).map(resource -> {
+            try {
+                Document doc = dBuilder.parse(resource.getInputStream());
+                logger.info(() -> String.format("Parsed file \"%s\"", resource.getFilename()));
+
+                return doc.getDocumentElement();
+            } catch (IOException | SAXException e) {
+                throw new RuntimeException(e);
+            }
+        }).collect(Collectors.toList());
     }
 
 }

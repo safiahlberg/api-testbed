@@ -1,5 +1,6 @@
 package com.service.mm.mailbox.client;
 
+import org.w3c.dom.Element;
 import se.gov.minameddelanden.schema.message.v3.*;
 import se.gov.minameddelanden.schema.officialmatter.v3.OfficialMatterExtension;
 import se.gov.minameddelanden.schema.service.v3.DeliverSecure;
@@ -21,7 +22,7 @@ public interface DeliverSecureBuilder {
 
     DeliverSecureBuilder setOfficialMatter(OfficialMatter officialMatter);
 
-    DeliverSecureBuilder setOfficialMatterAnies(Collection<Object> anies);
+    DeliverSecureBuilder setOfficialMatterAnies(Collection<Element> anies);
 
     DeliverSecureBuilder setOfficialMatterExtension(OfficialMatterExtension officialMatterExtension);
 }

@@ -1,5 +1,6 @@
 package com.service.mm.mailbox.client;
 
+import org.w3c.dom.Element;
 import se.gov.minameddelanden.schema.message.v3.*;
 import se.gov.minameddelanden.schema.officialmatter.v3.OfficialMatterExtension;
 import se.gov.minameddelanden.schema.service.v3.DeliverSecure;
@@ -22,10 +23,10 @@ public class DeliverSecureBuilderImpl implements DeliverSecureBuilder {
         deliverSecureTmp.getDeliverSecure().getSignedDelivery().setDelivery(secureDelivery);
 
         final SecureMessage secureMessage = new SecureMessage();
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage().add(secureMessage);
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages().add(secureMessage);
 
         final MessageHeader messageHeader = new MessageHeader();
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage().forEach(secureMessage1 -> secureMessage.setHeader(messageHeader));
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages().forEach(secureMessage1 -> secureMessage.setHeader(messageHeader));
     }
 
     @Override
@@ -39,8 +40,8 @@ public class DeliverSecureBuilderImpl implements DeliverSecureBuilder {
                 .setDelivery(deliverSecureTmp.getDeliverSecure().getSignedDelivery()
                 .getDelivery());
         deliverSecure.getDeliverSecure().getSignedDelivery().getDelivery()
-                .getMessage().addAll(deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery()
-                .getMessage());
+                .getMessages().addAll(deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery()
+                .getMessages());
 
         return deliverSecure;
     }
@@ -67,7 +68,7 @@ public class DeliverSecureBuilderImpl implements DeliverSecureBuilder {
 
     @Override
     public DeliverSecureBuilder addMessages(Collection<SecureMessage> messages) {
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage().addAll(messages);
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages().addAll(messages);
 
         return this;
     }
@@ -75,30 +76,30 @@ public class DeliverSecureBuilderImpl implements DeliverSecureBuilder {
     @Override
     public DeliverSecureBuilder setMessageHeader(MessageHeader messageHeader) {
         deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery()
-                .getMessage().forEach(message -> message.setHeader(messageHeader));
+                .getMessages().forEach(message -> message.setHeader(messageHeader));
 
         return this;
     }
 
     @Override
     public DeliverSecureBuilder setOfficialMatter(OfficialMatter officialMatter) {
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage()
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages()
                 .forEach(message -> message.getHeader().setOfficialMatter(officialMatter));
 
         return this;
     }
 
     @Override
-    public DeliverSecureBuilder setOfficialMatterAnies(Collection<Object> anies) {
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage()
-                .forEach(message -> message.getHeader().getOfficialMatter().getAny().addAll(anies));
+    public DeliverSecureBuilder setOfficialMatterAnies(Collection<Element> anies) {
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages()
+                .forEach(message -> message.getHeader().getOfficialMatter().getAnies().addAll(anies));
 
         return this;
     }
 
     @Override
     public DeliverSecureBuilder setOfficialMatterExtension(OfficialMatterExtension officialMatterExtension) {
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage()
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages()
                 .forEach(message -> message.getHeader().getOfficialMatter().setOfficialMatterExtension(officialMatterExtension));
 
         return this;

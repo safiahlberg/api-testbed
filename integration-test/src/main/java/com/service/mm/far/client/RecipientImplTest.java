@@ -26,7 +26,7 @@ public class RecipientImplTest {
 
         IsReachable request = new IsReachable();
         request.setSenderOrgNr("senderOrgNr");
-        request.getRecipientId().add("recipientId");
+        request.getRecipientIds().add("recipientId");
         IsReachableResponse result = proxyV3.isReachable(request );
 
         Assert.assertNotNull(result);

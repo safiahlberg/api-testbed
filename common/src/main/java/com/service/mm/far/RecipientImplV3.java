@@ -2,7 +2,7 @@ package com.service.mm.far;
 
 import se.gov.minameddelanden.recipient.ApplicationFaultV3;
 import se.gov.minameddelanden.recipient.RecipientPortV3;
-import se.gov.minameddelanden.schema.common.v3.ExceptionInformation;
+import se.gov.minameddelanden.schema.common.v3.ApplicationFault;
 import se.gov.minameddelanden.schema.recipient.AccountStatus;
 import se.gov.minameddelanden.schema.recipient.ReachabilityStatus;
 import se.gov.minameddelanden.schema.recipient.v2.*;
@@ -56,11 +56,11 @@ public class RecipientImplV3 implements RecipientPortV3 {
             accountStatus.setLastRegistration(DatatypeFactory.newInstance().newXMLGregorianCalendar(
                     2017, 1, 1, 1, 1, 1, 1, 0));
         } catch (DatatypeConfigurationException e) {
-            throw new ApplicationFaultV3("Internal error, could not create date", new ExceptionInformation(), e);
+            throw new ApplicationFaultV3("Internal error, could not create date", new ApplicationFault(), e);
         }
         accountStatus.setPending(false);
 
-        response.getReturn().add(status);
+        response.getReturns().add(status);
 
         return response;
     }
