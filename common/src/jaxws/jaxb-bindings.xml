@@ -2,17 +2,24 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
            xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           xmlns:msg="http://minameddelanden.gov.se/schema/Message/v3"
            elementFormDefault="qualified" attributeFormDefault="unqualified"
-           jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.1">
+           jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.1">    
     <xs:annotation>
         <xs:appinfo>
             <jaxb:globalBindings>
                 <jaxb:serializable/>
+                <!--
+                <xjc:javaType name="se.gov.minameddelanden.schema.message.v3.SignedDelivery" xmlType="msg:SignedDelivery"
+                              adapter="mumble.bindings.BooleanAdapter" />
+                                          -->
                 <xjc:simple/>
             </jaxb:globalBindings>
         </xs:appinfo>
     </xs:annotation>
+    <!-- Temporary disable
     <xs:import schemaLocation="../main/resources/externalschema/Invoice.xsd"
                namespace="http://minameddelanden.gov.se/externalschema/Invoice"/>
+                   -->
 
 </xs:schema>

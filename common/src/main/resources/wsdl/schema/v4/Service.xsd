@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:message="http://minameddelanden.gov.se/schema/Message"
+        xmlns:message4="http://minameddelanden.gov.se/schema/Message/v4"
+        xmlns:notification3="http://minameddelanden.gov.se/schema/Notification/v3"
+        xmlns:service="http://minameddelanden.gov.se/schema/Service"
+        targetNamespace="http://minameddelanden.gov.se/schema/Service/v4"
+        xmlns:servicev3="http://minameddelanden.gov.se/schema/Service/v3"
+        elementFormDefault="qualified"
+        version="4.0">
+
+  <import namespace="http://minameddelanden.gov.se/schema/Message" schemaLocation="../Message.xsd"/>
+  <import namespace="http://minameddelanden.gov.se/schema/Message/v4" schemaLocation="Message.xsd"/>
+  <import namespace="http://minameddelanden.gov.se/schema/Notification" schemaLocation="../Notification.xsd"/>
+  <import namespace="http://minameddelanden.gov.se/schema/Notification/v3" schemaLocation="../v3/Notification.xsd"/>
+  <import namespace="http://minameddelanden.gov.se/schema/Service" schemaLocation="../Service.xsd"/>
+
+  <element name="deliverSecure">
+    <complexType>
+      <sequence>
+        <element name="deliverSecure" type="message4:SealedDelivery"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="notify">
+    <complexType>
+      <sequence>
+        <element name="notify" type="notification3:NotificationDelivery"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="notifyResponse">
+    <complexType>
+      <sequence>
+        <element name="return" type="notification3:NotifyResult"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="deliverForward">
+    <complexType>
+      <sequence>
+        <element name="forwardMessage" type="servicev3:ForwardDelivery"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="deliverForwardResponse">
+    <complexType>
+      <sequence>
+        <element name="return" type="service:DeliveryResult"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="deliverSecureResponse">
+    <complexType>
+      <sequence>
+        <element name="return" type="service:DeliveryResult"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <complexType name="ForwardDelivery">
+    <sequence>
+      <element name="Header" type="message:DeliveryHeader"/>
+      <element name="Message" type="message:ForwardMessage"/>
+      <element name="OrginalDelivery" type="message4:SealedDelivery"/>
+      <element name="MessageIdToForward" type="string" minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+</schema>
