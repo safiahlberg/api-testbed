@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2016 rel. 2 sp1 (x64) (http://www.altova.com) by ﻿Skatteverket (Skatteverket) -->
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:recipient="http://minameddelanden.gov.se/schema/Recipient" xmlns:recipientv2="http://minameddelanden.gov.se/schema/Recipient/v2" xmlns:authority="http://minameddelanden.gov.se/schema/Authority" xmlns:sender="http://minameddelanden.gov.se/schema/Sender" xmlns:common="http://minameddelanden.gov.se/schema/Common" targetNamespace="http://minameddelanden.gov.se/schema/Recipient/v2" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:recipient="http://minameddelanden.gov.se/schema/Recipient"
+        xmlns:recipientv2="http://minameddelanden.gov.se/schema/Recipient/v2"
+        xmlns:authority="http://minameddelanden.gov.se/schema/Authority"
+        xmlns:common="http://minameddelanden.gov.se/schema/Common"
+        targetNamespace="http://minameddelanden.gov.se/schema/Recipient/v2" elementFormDefault="qualified">
     <annotation>
         <documentation>Version 2.0</documentation>
     </annotation>

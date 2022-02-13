@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema targetNamespace="http://minameddelanden.gov.se/schema/Sender"
-  elementFormDefault="qualified"
-  xmlns="http://www.w3.org/2001/XMLSchema"
-  xmlns:sender="http://minameddelanden.gov.se/schema/Sender"
-  xmlns:recipient="http://minameddelanden.gov.se/schema/Recipient">
+        elementFormDefault="qualified"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:recipient="http://minameddelanden.gov.se/schema/Recipient">
 
   <import schemaLocation="Recipient.xsd" namespace="http://minameddelanden.gov.se/schema/Recipient" />
 

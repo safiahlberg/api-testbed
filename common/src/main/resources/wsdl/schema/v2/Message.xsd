@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:message2="http://minameddelanden.gov.se/schema/Message/v2" xmlns:message="http://minameddelanden.gov.se/schema/Message" xmlns:notification="http://minameddelanden.gov.se/schema/Notification" xmlns:recipient="http://minameddelanden.gov.se/schema/Recipient" xmlns:sender="http://minameddelanden.gov.se/schema/Sender" xmlns:sig="http://www.w3.org/2000/09/xmldsig#" targetNamespace="http://minameddelanden.gov.se/schema/Message/v2" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:message2="http://minameddelanden.gov.se/schema/Message/v2"
+        xmlns:message="http://minameddelanden.gov.se/schema/Message"
+        xmlns:recipient="http://minameddelanden.gov.se/schema/Recipient"
+        xmlns:sender="http://minameddelanden.gov.se/schema/Sender" xmlns:sig="http://www.w3.org/2000/09/xmldsig#"
+        targetNamespace="http://minameddelanden.gov.se/schema/Message/v2" elementFormDefault="qualified">
     <import namespace="http://minameddelanden.gov.se/schema/Message" schemaLocation="../Message.xsd"/>
     <import namespace="http://minameddelanden.gov.se/schema/Recipient" schemaLocation="../Recipient.xsd"/>
     <import namespace="http://minameddelanden.gov.se/schema/Sender" schemaLocation="../Sender.xsd"/>

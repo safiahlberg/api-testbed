@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <schema targetNamespace="http://minameddelanden.gov.se/schema/Receipt"
-  elementFormDefault="qualified"
-  xmlns="http://www.w3.org/2001/XMLSchema"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns:recipient="http://minameddelanden.gov.se/schema/Recipient"
-  xmlns:receipt="http://minameddelanden.gov.se/schema/Receipt"
-  xmlns:sig="http://www.w3.org/2000/09/xmldsig#">
+        elementFormDefault="qualified"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:recipient="http://minameddelanden.gov.se/schema/Recipient"
+        xmlns:sig="http://www.w3.org/2000/09/xmldsig#">
 
   <import schemaLocation="Recipient.xsd" namespace="http://minameddelanden.gov.se/schema/Recipient" />
   <import schemaLocation="xmldsig-core-schema.xsd" namespace="http://www.w3.org/2000/09/xmldsig#" />

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:common="http://minameddelanden.gov.se/schema/Common" targetNamespace="http://minameddelanden.gov.se/schema/Common" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://minameddelanden.gov.se/schema/Common"
+        elementFormDefault="qualified">
 	<complexType name="Paging">
 		<sequence>
 			<element name="PageNumber" type="int" minOccurs="1" maxOccurs="1"/>

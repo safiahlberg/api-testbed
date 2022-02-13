@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <schema targetNamespace="http://minameddelanden.gov.se/schema/Reply"
-		elementFormDefault="qualified"
-		xmlns="http://www.w3.org/2001/XMLSchema"
-		xmlns:msg="http://minameddelanden.gov.se/schema/Message"
-		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-		xmlns:reply="http://minameddelanden.gov.se/schema/Reply"
-		xmlns:sig="http://www.w3.org/2000/09/xmldsig#"
-		xmlns:message="http://minameddelanden.gov.se/schema/Message">
+        elementFormDefault="qualified"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:msg="http://minameddelanden.gov.se/schema/Message"
+        xmlns:reply="http://minameddelanden.gov.se/schema/Reply"
+        xmlns:sig="http://www.w3.org/2000/09/xmldsig#"
+        xmlns:message="http://minameddelanden.gov.se/schema/Message">
 
 	<import schemaLocation="xmldsig-core-schema.xsd" namespace="http://www.w3.org/2000/09/xmldsig#" />
 	<import schemaLocation="Message.xsd" namespace="http://minameddelanden.gov.se/schema/Message" />

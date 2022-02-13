@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema
-  xmlns="http://www.w3.org/2001/XMLSchema"
-  xmlns:message="http://minameddelanden.gov.se/schema/Message"
-  xmlns:message3="http://minameddelanden.gov.se/schema/Message/v3"
-  xmlns:notification="http://minameddelanden.gov.se/schema/Notification"
-  xmlns:notification3="http://minameddelanden.gov.se/schema/Notification/v3"
-  xmlns:service="http://minameddelanden.gov.se/schema/Service"
-  targetNamespace="http://minameddelanden.gov.se/schema/Service/v3"
-  xmlns:servicev3="http://minameddelanden.gov.se/schema/Service/v3"
-  elementFormDefault="qualified"
-  version="3.0">
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:message="http://minameddelanden.gov.se/schema/Message"
+        xmlns:message3="http://minameddelanden.gov.se/schema/Message/v3"
+        xmlns:notification3="http://minameddelanden.gov.se/schema/Notification/v3"
+        xmlns:service="http://minameddelanden.gov.se/schema/Service"
+        targetNamespace="http://minameddelanden.gov.se/schema/Service/v3"
+        xmlns:servicev3="http://minameddelanden.gov.se/schema/Service/v3"
+        elementFormDefault="qualified"
+        version="3.0">
 
   <import namespace="http://minameddelanden.gov.se/schema/Message" schemaLocation="../Message.xsd"/>
   <import namespace="http://minameddelanden.gov.se/schema/Message/v3" schemaLocation="../v3/Message.xsd"/>

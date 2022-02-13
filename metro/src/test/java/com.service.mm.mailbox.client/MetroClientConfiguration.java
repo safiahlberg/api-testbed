@@ -7,8 +7,6 @@ import se.gov.minameddelanden.recipient.RecipientPortV3;
 import se.gov.minameddelanden.service.Service;
 import se.gov.minameddelanden.service.ServicePortV3;
 
-import javax.xml.ws.BindingProvider;
-
 @Configuration
 public class MetroClientConfiguration {
 

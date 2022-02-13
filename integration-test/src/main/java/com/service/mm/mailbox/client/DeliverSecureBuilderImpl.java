@@ -8,7 +8,7 @@ import se.gov.minameddelanden.schema.service.v3.DeliverSecure;
 import java.util.Collection;
 
 public class DeliverSecureBuilderImpl implements DeliverSecureBuilder {
-    private DeliverSecure deliverSecureTmp;
+    private final DeliverSecure deliverSecureTmp;
 
     public DeliverSecureBuilderImpl() {
         deliverSecureTmp = new DeliverSecure();
@@ -23,10 +23,10 @@ public class DeliverSecureBuilderImpl implements DeliverSecureBuilder {
         deliverSecureTmp.getDeliverSecure().getSignedDelivery().setDelivery(secureDelivery);
 
         final SecureMessage secureMessage = new SecureMessage();
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages().add(secureMessage);
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage().add(secureMessage);
 
         final MessageHeader messageHeader = new MessageHeader();
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages().forEach(secureMessage1 -> secureMessage.setHeader(messageHeader));
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage().forEach(secureMessage1 -> secureMessage.setHeader(messageHeader));
     }
 
     @Override
@@ -40,8 +40,8 @@ public class DeliverSecureBuilderImpl implements DeliverSecureBuilder {
                 .setDelivery(deliverSecureTmp.getDeliverSecure().getSignedDelivery()
                 .getDelivery());
         deliverSecure.getDeliverSecure().getSignedDelivery().getDelivery()
-                .getMessages().addAll(deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery()
-                .getMessages());
+                .getMessage().addAll(deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery()
+                .getMessage());
 
         return deliverSecure;
     }
@@ -68,7 +68,7 @@ public class DeliverSecureBuilderImpl implements DeliverSecureBuilder {
 
     @Override
     public DeliverSecureBuilder addMessages(Collection<SecureMessage> messages) {
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages().addAll(messages);
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage().addAll(messages);
 
         return this;
     }
@@ -76,14 +76,14 @@ public class DeliverSecureBuilderImpl implements DeliverSecureBuilder {
     @Override
     public DeliverSecureBuilder setMessageHeader(MessageHeader messageHeader) {
         deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery()
-                .getMessages().forEach(message -> message.setHeader(messageHeader));
+                .getMessage().forEach(message -> message.setHeader(messageHeader));
 
         return this;
     }
 
     @Override
     public DeliverSecureBuilder setOfficialMatter(OfficialMatter officialMatter) {
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages()
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage()
                 .forEach(message -> message.getHeader().setOfficialMatter(officialMatter));
 
         return this;
@@ -91,15 +91,15 @@ public class DeliverSecureBuilderImpl implements DeliverSecureBuilder {
 
     @Override
     public DeliverSecureBuilder setOfficialMatterAnies(Collection<Element> anies) {
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages()
-                .forEach(message -> message.getHeader().getOfficialMatter().getAnies().addAll(anies));
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage()
+                .forEach(message -> message.getHeader().getOfficialMatter().getAny().addAll(anies));
 
         return this;
     }
 
     @Override
     public DeliverSecureBuilder setOfficialMatterExtension(OfficialMatterExtension officialMatterExtension) {
-        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessages()
+        deliverSecureTmp.getDeliverSecure().getSignedDelivery().getDelivery().getMessage()
                 .forEach(message -> message.getHeader().getOfficialMatter().setOfficialMatterExtension(officialMatterExtension));
 
         return this;

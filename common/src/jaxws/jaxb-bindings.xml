@@ -2,7 +2,6 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
            xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
-           xmlns:msg="http://minameddelanden.gov.se/schema/Message/v3"
            elementFormDefault="qualified" attributeFormDefault="unqualified"
            jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.1">    
     <xs:annotation>

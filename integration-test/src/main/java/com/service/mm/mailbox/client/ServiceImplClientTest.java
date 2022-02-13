@@ -1,8 +1,6 @@
 package com.service.mm.mailbox.client;
 
 import com.service.mm.client.ClientConfiguration;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.io.Resource;
@@ -14,8 +12,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 import se.gov.minameddelanden.schema.message.v3.OfficialMatter;
+import se.gov.minameddelanden.schema.service.DeliveryResult;
 import se.gov.minameddelanden.schema.service.v3.DeliverSecure;
-import se.gov.minameddelanden.schema.service.v3.DeliverSecureResponse;
 import se.gov.minameddelanden.service.ApplicationFaultV3;
 import se.gov.minameddelanden.service.ServicePortV3;
 
@@ -30,10 +28,9 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class ServiceImplClientTest {
-    private static Logger logger = LogManager.getLogger(ServiceImplClientTest.class);
 
-    private ApplicationContext context = new AnnotationConfigApplicationContext(ClientConfiguration.class);
-    private ServicePortV3 proxyV3 = (ServicePortV3) context.getBean("mailboxv3");
+    private final ApplicationContext context = new AnnotationConfigApplicationContext(ClientConfiguration.class);
+    private final ServicePortV3 proxyV3 = (ServicePortV3) context.getBean("mailboxv3");
 
     @BeforeMethod
     public void setUp() {
@@ -55,13 +52,13 @@ public class ServiceImplClientTest {
         Assert.assertNotEquals(invoices.size(), 0);
 
         OfficialMatter officialMatter = new OfficialMatter();
-        officialMatter.getAnies().addAll(invoices);
+        officialMatter.getAny().addAll(invoices);
 
         DeliverSecure request = new DeliverSecureBuilderImpl()
                 .setOfficialMatter(officialMatter)
                 .build();
 
-        DeliverSecureResponse result = proxyV3.deliverSecure(request);
+        DeliveryResult result = proxyV3.deliverSecure(request.getDeliverSecure());
 
         Assert.assertNotNull(result);
     }
@@ -71,7 +68,6 @@ public class ServiceImplClientTest {
                 )).map(resource -> {
             try {
                 Document doc = dBuilder.parse(resource.getInputStream());
-                logger.info(() -> String.format("Parsed file \"%s\"", resource.getFilename()));
 
                 return doc.getDocumentElement();
             } catch (IOException | SAXException e) {

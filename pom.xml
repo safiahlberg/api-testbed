@@ -15,17 +15,17 @@
     </modules>
 
     <properties>
-        <project.java.version>1.8</project.java.version>
-
         <project.build.resourcesDirectory>${project.basedir}/src/main/resources</project.build.resourcesDirectory>
+
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.java.version>11</project.java.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <maven.compiler.source>${project.java.version}</maven.compiler.source>
-        <maven.compiler.target>${project.java.version}</maven.compiler.target>
-
         <cxf.version>3.2.5</cxf.version>
+
+        <jakarta.xml.soap.version>2.0.1</jakarta.xml.soap.version>
     </properties>
 
     <dependencies>
@@ -69,7 +69,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${project.java.version}</source>
                     <target>${project.java.version}</target>
@@ -128,11 +128,11 @@
                     <plugins>
                         <plugin>
                             <groupId>org.codehaus.cargo</groupId>
-                            <artifactId>cargo-maven2-plugin</artifactId>
-                            <version>1.6.8</version>
+                            <artifactId>cargo-maven3-plugin</artifactId>
+                            <version>1.9.9</version>
                             <configuration>
                                 <container>
-                                    <containerId>jetty9x</containerId>
+                                    <containerId>glassfish6x</containerId>
                                     <type>embedded</type>
                                 </container>
                                 <configuration>

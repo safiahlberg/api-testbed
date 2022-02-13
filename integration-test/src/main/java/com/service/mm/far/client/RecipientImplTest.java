@@ -8,8 +8,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import se.gov.minameddelanden.recipient.ApplicationFaultV3;
 import se.gov.minameddelanden.recipient.RecipientPortV3;
-import se.gov.minameddelanden.schema.recipient.v3.IsReachable;
-import se.gov.minameddelanden.schema.recipient.v3.IsReachableResponse;
+import se.gov.minameddelanden.schema.recipient.ReachabilityStatus;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RecipientImplTest {
 
@@ -24,10 +26,9 @@ public class RecipientImplTest {
     @Test
     public void isReachable() throws ApplicationFaultV3 {
 
-        IsReachable request = new IsReachable();
-        request.setSenderOrgNr("senderOrgNr");
-        request.getRecipientIds().add("recipientId");
-        IsReachableResponse result = proxyV3.isReachable(request );
+        final List<String> request = new ArrayList<>();
+        request.add("recipientId");
+        final List<ReachabilityStatus> result = proxyV3.isReachable("senderOrgNr", request );
 
         Assert.assertNotNull(result);
     }

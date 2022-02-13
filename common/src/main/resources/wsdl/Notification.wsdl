@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions xmlns:tns="http://minameddelanden.gov.se/Notification" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:notification2="http://minameddelanden.gov.se/schema/Notification/v2" xmlns:notification3="http://minameddelanden.gov.se/schema/Notification/v3" xmlns:commonv3="http://minameddelanden.gov.se/schema/Common/v3" name="Notification" targetNamespace="http://minameddelanden.gov.se/Notification">
+<wsdl:definitions xmlns:tns="http://minameddelanden.gov.se/Notification"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:notification3="http://minameddelanden.gov.se/schema/Notification/v3"
+                  xmlns:commonv3="http://minameddelanden.gov.se/schema/Common/v3" name="Notification"
+                  targetNamespace="http://minameddelanden.gov.se/Notification">
 	<wsdl:documentation>Version 3.0</wsdl:documentation>
 	<wsdl:types>
 		<xsd:schema>

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema
-  xmlns="http://www.w3.org/2001/XMLSchema"
-  xmlns:notification="http://minameddelanden.gov.se/schema/Notification"
-  xmlns:notification2="http://minameddelanden.gov.se/schema/Notification/v2"
-  xmlns:notification3="http://minameddelanden.gov.se/schema/Notification/v3"
-  xmlns:message="http://minameddelanden.gov.se/schema/Message"
-  xmlns:message3="http://minameddelanden.gov.se/schema/Message/v3"
-  xmlns:sender="http://minameddelanden.gov.se/schema/Sender"
-  xmlns:recipient="http://minameddelanden.gov.se/schema/Recipient"
-  targetNamespace="http://minameddelanden.gov.se/schema/Notification/v3"
-  elementFormDefault="qualified"
-  version="3.0">
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:notification2="http://minameddelanden.gov.se/schema/Notification/v2"
+        xmlns:notification3="http://minameddelanden.gov.se/schema/Notification/v3"
+        xmlns:message="http://minameddelanden.gov.se/schema/Message"
+        xmlns:message3="http://minameddelanden.gov.se/schema/Message/v3"
+        xmlns:sender="http://minameddelanden.gov.se/schema/Sender"
+        xmlns:recipient="http://minameddelanden.gov.se/schema/Recipient"
+        targetNamespace="http://minameddelanden.gov.se/schema/Notification/v3"
+        elementFormDefault="qualified"
+        version="3.0">
 
   <import namespace="http://minameddelanden.gov.se/schema/Message" schemaLocation="../Message.xsd"/>
   <import namespace="http://minameddelanden.gov.se/schema/Notification" schemaLocation="../Notification.xsd"/>

@@ -1,21 +1,21 @@
 package com.testcorp.handler;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import jakarta.xml.soap.SOAPException;
+import jakarta.xml.soap.SOAPMessage;
+import jakarta.xml.ws.handler.MessageContext;
+import jakarta.xml.ws.handler.soap.SOAPHandler;
+import jakarta.xml.ws.handler.soap.SOAPMessageContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.xml.namespace.QName;
-import javax.xml.soap.SOAPException;
-import javax.xml.soap.SOAPMessage;
-import javax.xml.ws.handler.MessageContext;
-import javax.xml.ws.handler.soap.SOAPHandler;
-import javax.xml.ws.handler.soap.SOAPMessageContext;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Set;
 
 public class DefaultHandler implements SOAPHandler<SOAPMessageContext> {
 
-    private static Logger logger = LogManager.getLogger(DefaultHandler.class);
+    private static Logger logger = LoggerFactory.getLogger(DefaultHandler.class);
 
     public Set<QName> getHeaders() {
         return Collections.emptySet();
