@@ -1,5 +1,6 @@
 package com.service.mm.mailbox.client;
 
+import jakarta.xml.ws.BindingProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import se.gov.minameddelanden.recipient.Recipient;

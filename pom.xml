@@ -132,7 +132,7 @@
                             <version>1.9.9</version>
                             <configuration>
                                 <container>
-                                    <containerId>glassfish6x</containerId>
+                                    <containerId>jetty11x</containerId>
                                     <type>embedded</type>
                                 </container>
                                 <configuration>
